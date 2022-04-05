@@ -3,11 +3,11 @@
 
 [![Nuget](https://img.shields.io/nuget/v/Portia.Net.HealthCheck?label=NuGet)](https://www.nuget.org/packages/Portia.Net.HealthCheck/)
 
-### What is Portia.Net.HealthCheck?
+### What is PortiaNet.HealthCheck.Reporter?
 
-![](https://github.com/AminEsmaeily/Portia.Net.HealthCheck/blob/master/Assets/logo-16.png) **Portia.Net.HealthCheck** is a middleware for .Net web applications (WebAPI and MVC) which collects all required information about the income requests on the server, then delivers them to a service to be saved or analyzed.
+![](https://github.com/PortiaNet/HealthCheck.Reporter/blob/master/Assets/logo-16.png) **PortiaNet.HealthCheck.Reporter** is a middleware for .Net web applications (WebAPI and MVC) which collects all required information about the income requests on the server, then delivers them to a service to be saved or analyzed.
 
-The following project has the core functionality of the health check which only collects the information and delivers them to a registered service with the type of [IHealthCheckReportService](https://github.com/AminEsmaeily/Portia.Net.HealthCheck/blob/master/Portia.Net.HealthCheck.Core/IHealthCheckReportService.cs).
+The following project has the core functionality of the health check which only collects the information and delivers them to a registered service with the type of [IHealthCheckReportService](https://github.com/PortiaNet/HealthCheck.Reporter/blob/master/PortiaNet.HealthCheck.Reporter/IHealthCheckReportService.cs).
 
 The information which this middleware provides are as follows:
 
@@ -29,12 +29,12 @@ The information which this middleware provides are as follows:
 You can install this tool from [Nuget](https://www.nuget.org/packages/Portia.Net.HealthCheck/) using Package Manager Console:
 
 ```
-PM> Install-Package Portia.Net.HealthCheck
+PM> Install-Package PortiaNet.HealthCheck.Reporter
 ```
 
 ### How do I get started?
 
-1. You need a service in your repository to receive the reports from the middleware, then create a simple one and inherit it from [IHealthCheckReportService](https://github.com/AminEsmaeily/Portia.Net.HealthCheck/blob/master/Portia.Net.HealthCheck.Core/IHealthCheckReportService.cs).
+1. You need a service in your repository to receive the reports from the middleware, then create a simple one and inherit it from [IHealthCheckReportService](https://github.com/PortiaNet/HealthCheck.Reporter/blob/master/PortiaNet.HealthCheck.Reporter/IHealthCheckReportService.cs).
 
 ``` C#
 public class HealthCheckReportServiceImpl : IHealthCheckReportService
