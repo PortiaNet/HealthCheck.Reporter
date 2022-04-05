@@ -13,6 +13,7 @@
     <PackageReadmeFile>README.MD</PackageReadmeFile>
     <PackageTags>.Net; HealthCheck; Watchdog; Monitoring; Performance Monitoring</PackageTags>
 	  <PackageLicenseFile>License.txt</PackageLicenseFile>
+	  <Copyright>Copyright 2022 - Amin Esmaeily</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
