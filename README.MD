@@ -26,7 +26,7 @@ The information which this middleware provides are as follows:
 
 ### Installation
 
-You can install this tool from [Nuget](https://www.nuget.org/packages/Portia.Net.HealthCheck/) using Package Manager Console:
+You can install this tool from [Nuget](https://www.nuget.org/packages/PortiaNet.HealthCheck.Reporter/) using Package Manager Console:
 
 ```
 PM> Install-Package PortiaNet.HealthCheck.Reporter
