@@ -1,7 +1,7 @@
 ﻿<img src="https://user-images.githubusercontent.com/11803924/159634426-45568864-0568-441c-9d0b-a28756f42f9f.png" width="400">
 
 
-[![Nuget](https://img.shields.io/nuget/v/Portia.Net.HealthCheck?label=NuGet)](https://www.nuget.org/packages/Portia.Net.HealthCheck/)
+[![Nuget](https://img.shields.io/nuget/v/PortiaNet.HealthCheck.Reporter?label=NuGet)](https://www.nuget.org/packages/PortiaNet.HealthCheck.Reporter/)
 
 ### What is PortiaNet.HealthCheck.Reporter?
 

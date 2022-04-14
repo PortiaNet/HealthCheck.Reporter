@@ -46,5 +46,15 @@
         /// If the API throws an exception which doesn't inherit <u>IHealthCheckKnownException</u>, this property will be true, otherwise it will be false.
         /// </summary>
         public bool HadError { get; set; }
+
+        /// <summary>
+        /// In the case of storing information of different applications' logs or different copies of service, the NodeName can help to distinguish them from each other. It should be configured in the writers.
+        /// </summary>
+        public string? NodeName { get; set; }
+
+        /// <summary>
+        /// Returns the date and time in GMT that the request received to the server.
+        /// </summary>
+        public DateTime EventDateTime { get; set; }
     }
 }

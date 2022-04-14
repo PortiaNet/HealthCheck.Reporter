@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
+using System.Diagnostics;
 using System.Text.Json;
 
 namespace PortiaNet.HealthCheck.Reporter
@@ -16,7 +17,7 @@ namespace PortiaNet.HealthCheck.Reporter
             _next = next;
         }
 
-        public async Task Invoke(HttpContext context, IHealthCheckReportService service)
+        public async Task Invoke(HttpContext context, IEnumerable<IHealthCheckReportService> implementations)
         {
             var endpoint = context.Features.Get<IEndpointFeature>()?.Endpoint;
             var attribute = endpoint?.Metadata.GetMetadata<HealthCheckIgnoreAttribute>();
@@ -52,6 +53,10 @@ namespace PortiaNet.HealthCheck.Reporter
                 if (ex is not IHealthCheckKnownException)
                     hasError = true;
 
+                Debugger.Log(100, "HealthCheck Exception", ex.Message);
+                Debugger.Log(100, "HealthCheck Exception", Environment.NewLine);
+                Debugger.Log(100, "HealthCheck Exception", ex.StackTrace);
+                Debugger.Log(100, "HealthCheck Exception", Environment.NewLine);
                 throw;
             }
             finally
@@ -67,9 +72,23 @@ namespace PortiaNet.HealthCheck.Reporter
                     Path = context.Request.Path,
                     QueryString = queryString,
                     UserAgent = userAgent,
-                    Username = context.User?.Identity?.Name
+                    Username = context.User?.Identity?.Name,
+                    EventDateTime = DateTime.UtcNow
                 };
-                await service.SaveAPICallInformationAsync(requestDetail);
+
+                try
+                {
+                    foreach (var impl in implementations)
+                        await impl.SaveAPICallInformationAsync(requestDetail);
+                }
+                catch(Exception ex)
+                {
+                    Debugger.Log(100, "HealthCheck Save Call Exception", ex.Message);
+                    Debugger.Log(100, "HealthCheck Save Call Exception", Environment.NewLine);
+                    Debugger.Log(100, "HealthCheck Save Call Exception", ex.StackTrace);
+                    Debugger.Log(100, "HealthCheck Save Call Exception", Environment.NewLine);
+                    throw;
+                }
             }
         }
     }
