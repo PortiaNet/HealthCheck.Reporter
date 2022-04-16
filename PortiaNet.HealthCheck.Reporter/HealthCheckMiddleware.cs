@@ -78,8 +78,18 @@ namespace PortiaNet.HealthCheck.Reporter
 
                 try
                 {
-                    foreach (var impl in implementations)
-                        await impl.SaveAPICallInformationAsync(requestDetail);
+                    if(implementations.Count() == 1)
+                        await implementations.First().SaveAPICallInformationAsync(requestDetail);
+                    else
+                    {
+                        var tasks = implementations.Select(f =>
+                            new Task(() =>
+                            {
+                                f.SaveAPICallInformationAsync(requestDetail);
+                            }));
+
+                        await Task.WhenAll(tasks);
+                    }
                 }
                 catch(Exception ex)
                 {
