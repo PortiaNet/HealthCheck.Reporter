@@ -1,45 +1,44 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <SignAssembly>False</SignAssembly>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Authors>Amin Esmaeily</Authors>
-    <PackageProjectUrl>https://github.com/PortiaNet/HealthCheck.Reporter</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/PortiaNet/HealthCheck.Reporter</RepositoryUrl>
-    <PackageIcon>logo-128.png</PackageIcon>
-    <PackageReadmeFile>README.MD</PackageReadmeFile>
-    <PackageTags>.Net; HealthCheck; Watchdog; Monitoring; Performance Monitoring</PackageTags>
-	  <PackageLicenseFile>License.txt</PackageLicenseFile>
-	  <Copyright>Copyright 2022 - Amin Esmaeily</Copyright>
-	  <Version>1.0.3</Version>
-	  <Description>A .Net library to report the requests received on the server side for the health check and performance control of the APIs and actions.</Description>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<SignAssembly>False</SignAssembly>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Authors>Amin Esmaeily</Authors>
+		<PackageProjectUrl>https://github.com/PortiaNet/HealthCheck.Reporter</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/PortiaNet/HealthCheck.Reporter</RepositoryUrl>
+		<PackageIcon>logo-128.png</PackageIcon>
+		<PackageReadmeFile>README.MD</PackageReadmeFile>
+		<PackageTags>.Net; HealthCheck; Watchdog; Monitoring; Performance Monitoring</PackageTags>
+		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+		<Copyright>Copyright 2022 - Amin Esmaeily</Copyright>
+		<Version>1.0.4</Version>
+		<Description>A .Net library to report the requests received on the server side for the health check and performance control of the APIs and actions.</Description>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Content Include="logo-128.png" />
-  </ItemGroup>
+	<ItemGroup>
+		<Content Include="logo-128.png" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Include="..\Assets\logo-128.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Include="..\README.MD">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-	  <None Include="..\License.txt">
-		  <Pack>True</Pack>
-		  <PackagePath>\</PackagePath>
-	  </None>
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="..\Assets\logo-128.png">
+			<Pack>True</Pack>
+			<Visible>False</Visible>
+			<PackagePath></PackagePath>
+		</None>
+		<None Include="..\README.MD">
+			<Pack>True</Pack>
+			<Visible>False</Visible>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Routing.Abstractions" Version="2.2.0" />
-  </ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Routing.Abstractions" Version="2.2.0" />
+	</ItemGroup>
 
 </Project>
