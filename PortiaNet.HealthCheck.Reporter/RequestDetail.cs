@@ -56,5 +56,15 @@
         /// Returns the date and time in GMT that the request received to the server.
         /// </summary>
         public DateTime EventDateTime { get; set; }
+
+        /// <summary>
+        /// Length of the request content in bytes
+        /// </summary>
+        public long? RequestContentLength { get; set; }
+
+        /// <summary>
+        /// Length of the response content in bytes
+        /// </summary>
+        public long? ResponseContentLength { get; set; }
     }
 }

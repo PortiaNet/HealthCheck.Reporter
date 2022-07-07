@@ -73,7 +73,9 @@ namespace PortiaNet.HealthCheck.Reporter
                     QueryString = queryString,
                     UserAgent = userAgent,
                     Username = context.User?.Identity?.Name,
-                    EventDateTime = DateTime.UtcNow
+                    EventDateTime = DateTime.UtcNow,
+                    RequestContentLength = context.Request.ContentLength,
+                    ResponseContentLength = context.Response.ContentLength
                 };
 
                 try

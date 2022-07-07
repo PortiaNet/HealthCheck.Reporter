@@ -14,7 +14,7 @@
 		<PackageTags>.Net; HealthCheck; Watchdog; Monitoring; Performance Monitoring</PackageTags>
 		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 		<Copyright>Copyright 2022 - Amin Esmaeily</Copyright>
-		<Version>1.0.4</Version>
+		<Version>1.1.0</Version>
 		<Description>A .Net library to report the requests received on the server side for the health check and performance control of the APIs and actions.</Description>
 	</PropertyGroup>
 
