@@ -20,6 +20,8 @@ The information which this middleware provides are as follows:
 - Full User Agent Information
 - Duration time which the API call took
 - Success Result of the API (To check if API throws any unknown or unhandled exception)
+- Request Content Length
+- Response Content Length
 
 <img src="https://user-images.githubusercontent.com/11803924/159649606-9b56f148-f28f-42f7-be1b-e0d15c41d1a7.png" width="600">
 
