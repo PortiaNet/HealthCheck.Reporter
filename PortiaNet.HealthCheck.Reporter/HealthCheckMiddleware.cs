@@ -75,7 +75,8 @@ namespace PortiaNet.HealthCheck.Reporter
                     Username = context.User?.Identity?.Name,
                     EventDateTime = DateTime.UtcNow,
                     RequestContentLength = context.Request.ContentLength,
-                    ResponseContentLength = context.Response.ContentLength
+                    ResponseContentLength = context.Response.ContentLength,
+                    ResponseStatusCode = context.Response.StatusCode
                 };
 
                 try

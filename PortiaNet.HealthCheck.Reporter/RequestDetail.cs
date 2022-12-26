@@ -66,5 +66,10 @@
         /// Length of the response content in bytes
         /// </summary>
         public long? ResponseContentLength { get; set; }
+
+        /// <summary>
+        /// HTTP Status code of the response
+        /// </summary>
+        public int? ResponseStatusCode { get; set; }
     }
 }
