@@ -9,21 +9,15 @@ namespace PortiaNet.HealthCheck.Reporter
     /// This middleware tracks the requests with the full client information, request duration, and success status.
     /// It should be added after the global exception handling, Authentication, and Authorization middlewares (if exist)
     /// </summary>
-    public class HealthCheckMiddleware
+    public class HealthCheckMiddleware(RequestDelegate next)
     {
-        private readonly RequestDelegate _next;
-        public HealthCheckMiddleware(RequestDelegate next)
-        {
-            _next = next;
-        }
-
         public async Task Invoke(HttpContext context, IEnumerable<IHealthCheckReportService> implementations)
         {
             var endpoint = context.Features.Get<IEndpointFeature>()?.Endpoint;
             var attribute = endpoint?.Metadata.GetMetadata<HealthCheckIgnoreAttribute>();
             if (attribute != null)
             {
-                await _next.Invoke(context);
+                await next.Invoke(context);
                 return;
             }
 
@@ -38,15 +32,14 @@ namespace PortiaNet.HealthCheck.Reporter
                 queryString = context.Request.QueryString.Value;
             }
 
-            var userAgent = context.Request.Headers.ContainsKey("User-Agent") ?
-                context.Request.Headers["User-Agent"].FirstOrDefault() : string.Empty;
+            var userAgent = context.Request.Headers.TryGetValue("User-Agent", out Microsoft.Extensions.Primitives.StringValues value) ? value.FirstOrDefault() : string.Empty;
 
             var startTime = DateTime.Now;
             var hasError = false;
 
             try
             {
-                await _next.Invoke(context);
+                await next.Invoke(context);
             }
             catch (Exception ex)
             {
